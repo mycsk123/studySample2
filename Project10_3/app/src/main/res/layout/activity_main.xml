@@ -7,7 +7,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnBack"
-        android:text="돌아가기"/>
+        android:id="@+id/btnDail"
+        android:text="전화 걸기"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFinish"
+        android:text="끝내기"/>
+
 
 </LinearLayout>
