@@ -29,7 +29,7 @@ public class ResultActivity extends AppCompatActivity {
         Integer rbarID[] = { R.id.rbar1,R.id.rbar2, R.id.rbar3, R.id.rbar4,
                 R.id.rbar5,R.id.rbar6, R.id.rbar7, R.id.rbar8,
                 R.id.rbar9};
-        Integer imageFileId[] = { R.drawable.m001, R.drawable.m002, R.drawable.m003
+        Integer imageFileId[] = { R.drawable.m001, R.drawable.m002, R.drawable.m003,
                 R.drawable.m004, R.drawable.m005, R.drawable.m006,
                 R.drawable.m007, R.drawable.m008, R.drawable.m009};
 
