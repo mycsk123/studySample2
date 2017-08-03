@@ -8,12 +8,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnPrev"
             android:text="이전 그림"
             android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1/5"
+            android:textAlignment="center" />
 
         <Button
             android:layout_width="wrap_content"
@@ -24,10 +33,9 @@
 
     </LinearLayout>
 
-    <cookmap.cookandroid.com.chap08_project8_2.myPictureView
+    <cookmap.cookandroid.com.chap08_exam8_2.myPictureView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/myPictureView1"/>
-
 
 </LinearLayout>

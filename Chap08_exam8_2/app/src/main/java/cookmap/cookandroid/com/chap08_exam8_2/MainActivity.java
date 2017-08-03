@@ -1,4 +1,4 @@
-package cookmap.cookandroid.com.chap08_project8_2;
+package cookmap.cookandroid.com.chap08_exam8_2;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.io.File;
 
@@ -21,17 +21,21 @@ public class MainActivity extends AppCompatActivity {
     String testS;
     File[] imageFiles;
     String imageFname;
+    TextView tv1;
+    String pageNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("간단 이미지 뷰어");
+
+        setTitle("간단 이미지 뷰어(변경)");
 
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
 
         btnPrev = (Button)findViewById(R.id.btnPrev);
         btnNext = (Button)findViewById(R.id.btnNext);
+        tv1 = (TextView)findViewById(R.id.tv1);
 
         myPicture = (myPictureView)findViewById(R.id.myPictureView1);
 
@@ -53,15 +57,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(curNum <= 0)
                 {
-                    Toast.makeText(getApplicationContext(), "첫번째 그림입니다", Toast.LENGTH_SHORT).show();
+                    curNum = imageFiles.length;
                 }
-                else
-                {
-                    curNum--;
-                    imageFname = imageFiles[curNum].toString();
-                    myPicture.imagePath = imageFname;
-                    myPicture.invalidate();
-                }
+
+                curNum--;
+                pageNum = Integer.toString(curNum+1) + "/" + Integer.toString(imageFiles.length);
+                tv1.setText(pageNum);
+
+                imageFname = imageFiles[curNum].toString();
+                myPicture.imagePath = imageFname;
+                myPicture.invalidate();
+
             }
         });
 
@@ -70,15 +76,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(curNum >= imageFiles.length -1)
                 {
-                    Toast.makeText(getApplicationContext(), "마지막 그림입니다.", Toast.LENGTH_SHORT).show();
+                    curNum = -1;
                 }
-                else
-                {
-                    curNum++;
-                    imageFname = imageFiles[curNum].toString();
-                    myPicture.imagePath = imageFname;
-                    myPicture.invalidate();
-                }
+                curNum++;
+                pageNum = Integer.toString(curNum+1) + "/" + Integer.toString(imageFiles.length);
+                tv1.setText(pageNum);
+                imageFname = imageFiles[curNum].toString();
+                myPicture.imagePath = imageFname;
+                myPicture.invalidate();
+
             }
         });
 
